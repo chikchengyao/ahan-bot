@@ -4,6 +4,7 @@ import resources as res
 
 import random
 import time
+import threading
 
 from telegram.ext import Updater
 from telegram.ext import MessageHandler, Filters
@@ -13,14 +14,19 @@ from telegram.ext import MessageHandler, Filters
 def find_and_select_random(bot, update, regex, replies):
     message_content = update.message.text
     m = regex.search(message_content)
+
     if m:
-        #Only responds to 20% of triggers
-        if (random.randint(0,4) > 0):
-            return m
-        
-        time.sleep(random.randint(30, 69)) # Uncomment for input lag.
-        bot.send_message(chat_id=update.message.chat_id, text=random.choice(replies))
-        return m # Since m is not None or False, it is interpreted as a True.
+        #Only responds to 50% of triggers
+        if (random.randint(0,2) > 0):
+            return "ignored " + str(m)
+
+        delay = random.uniform(10,30)
+        timer = threading.Timer(delay, lambda : bot.send_message(chat_id=update.message.chat_id, text=random.choice(replies)))
+
+        timer.start()
+
+        return "slept " + str(delay)+ " : " + str(m)
+        # Since m is not None or False, it is interpreted as a True.
     return False
 
 # Calls all the different "reply" functions. To be passed to the echo_handler.
