@@ -10,10 +10,13 @@ common_reply = ["Hoo my gosh this bot is too fucked",
                 "I cant take this anymore guys",
                 "fcukign toxicc CS cullture",
                 "OMG fuck whoever mdde the bot",
-                "Its all a CS CONSPIRACY!!!",
-                "you noe wat time it is !!",
-                " fuk u nicSHAL :(((  ",
-                "somebody KICK THIS BOT"
+                "Somebody KICK THIS BOT",
+                "When the fuck did this upgrade come in???",
+                "What the fuck...",
+                "At least the 2nd bot dint appear this time",
+                "I want to quit cs",
+                ":( I dont even like supper that much",
+                "Thats it im never eating supper again"
                 ]
 
 # Hardcoding triggers and responses.
